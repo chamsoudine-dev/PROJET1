@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "patients": "Patients",
+    "consultations": "Consultations",
+    "vaccinations": "Vaccinations",
+    "maternel": "Santé maternelle",
+    "pharmacie": "Pharmacie",
+    "stocks": "Stocks",
+    "rapports": "Rapports",
+    "projets": "Projets",
+    "parametres": "Paramètres",
+    "deconnexion": "Déconnexion"
+  },
+  "pages": {
+    "login": {
+      "title": "Santé Numérique Niger",
+      "description": "Connectez-vous à votre espace",
+      "email": "Email",
+      "password": "Mot de passe",
+      "submit": "Connexion",
+      "register": "Pas de compte ? S'inscrire"
+    },
+    "register": {
+      "title": "Inscription Agent de Santé",
+      "description": "Créez votre compte pour accéder à Santé Numérique Niger",
+      "personalInfo": "Informations personnelles",
+      "geographicAssignment": "Affectation géographique",
+      "security": "Sécurité du compte",
+      "emailLabel": "Email professionnel",
+      "passwordLabel": "Mot de passe",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "phone": "Téléphone (optionnel)",
+      "region": "Région",
+      "district": "District sanitaire",
+      "facility": "Formation sanitaire",
+      "submit": "S'inscrire",
+      "success": "Inscription réussie ! Votre compte est en attente de validation."
+    }
+  },
+  "patients": {
+    "title": "Registre des patients",
+    "searchPlaceholder": "Rechercher par nom, prénom ou ID...",
+    "newPatient": "Nouveau patient",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "fields": {
+      "nom": "Nom",
+      "prenom": "Prénom",
+      "dateNaissance": "Date de naissance",
+      "ageEstime": "Âge estimé",
+      "sexe": "Sexe",
+      "sexeHomme": "Homme",
+      "sexeFemme": "Femme",
+      "village": "Village",
+      "quartier": "Quartier",
+      "telephone": "Téléphone",
+      "personneContact": "Personne de contact",
+      "identifiant": "ID Patient"
+    }
+  },
+  "dashboard": {
+    "dashboard": "Tableau de bord",
+    "totalPatients": "Total patients",
+    "totalConsultations": "Total consultations",
+    "activeAlerts": "Alertes actives",
+    "vaccinationsToday": "Vaccinations aujourd'hui",
+    "malnutrition": "Cas de malnutrition",
+    "births": "Accouchements",
+    "deaths": "Décès"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "forgotPassword": "Mot de passe oublié ?",
+    "twoFactor": "Deuxième facteur d'authentification",
+    "verifyCode": "Entrez le code de vérification",
+    "backupCodes": "Codes de secours"
+  },
+  "errors": {
+    "network": "Erreur de connexion réseau",
+    "server": "Erreur serveur",
+    "unauthorized": "Non autorisé",
+    "forbidden": "Accès interdit",
+    "notFound": "Ressource non trouvée",
+    "validation": "Erreur de validation"
+  },
+  "actions": {
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "add": "Ajouter",
+    "submit": "Soumettre",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent"
+  },
+  "status": {
+    "loading": "Chargement...",
+    "success": "Réussi",
+    "error": "Erreur",
+    "pending": "En attente",
+    "active": "Actif",
+    "inactive": "Inactif"
+  },
+  "role": {
+    "admin": "Administrateur national",
+    "supervisorNational": "Superviseur national",
+    "supervisorRegional": "Superviseur régional",
+    "agent": "Agent de santé"
+  }
+}

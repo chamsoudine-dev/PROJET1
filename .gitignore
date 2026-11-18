@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.loader.mjs
+
+# Production
+.next/
+out/
+build/
+
+# Tests
+coverage/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Environment
+.env.local
+.env.production.local
+.env.test.local
+
+# Debug
+.editorconfig
+eslint-debug.log
+pnpm-debug.log*
+yarn-debug.log*
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp
+tmp/
+temp/
+
+# Database
+*.sqlite
+*.sqlite-journal
+
+# CI
+.github/workflows/run
+.travis.yml
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache

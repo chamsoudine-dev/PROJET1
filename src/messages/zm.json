@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "dashboard": "Tablaut",
+    "patients": "Auwari",
+    "consultations": "Auwari",
+    "vaccinations": "Vaccinations",
+    "maternel": "Lafiya da kaka",
+    "pharmacie": "Farmasi",
+    "stocks": "Stoks",
+    "rapports": "Rapports",
+    "projets": "Hassul",
+    "parametres": "Takamakon",
+    "deconnexion": "Sakamakon"
+  },
+  "pages": {
+    "login": {
+      "title": "Lafiya Numérique Niger",
+      "description": "Kara kai kai",
+      "email": "Imel",
+      "password": "Awatin",
+      "submit": "Kara",
+      "register": "Kadda kai kai ? Dawo kai"
+    }
+  },
+  "patients": {
+    "title": "Awari",
+    "searchPlaceholder": "Donya nuna awam",
+    "newPatient": "Auwari ciki",
+    "edit": "Cikin",
+    "delete": "Saya",
+    "fields": {
+      "nom": "Surnom",
+      "prenom": "Ismim",
+      "sexe": "Adama",
+      "sexeHomme": "Maka",
+      "sexeFemme": "Maki"
+    }
+  },
+  "dashboard": {
+    "dashboard": "Tablaut",
+    "totalPatients": "Awari tai",
+    "totalConsultations": "Awari tai",
+    "activeAlerts": "Alarai"
+  },
+  "auth": {
+    "login": "Kara",
+    "register": "Dawo kai",
+    "forgotPassword": "Awatin kai kafin kaka ?",
+    "twoFactor": "Kafin kaka duɗum",
+    "verifyCode": "Kara noma kafin kaka",
+    "backupCodes": "Noman kafin kaka don kusa"
+  }
+}
