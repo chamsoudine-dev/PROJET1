@@ -5,7 +5,9 @@ import {
   formationSanitaire,
   typeFormationEnum,
   maladieDeclarationObligatoire,
+  utilisateur,
 } from '../src/lib/db/schema';
+import { hashPassword } from '../src/lib/utils/crypto';
 
 async function seed() {
   console.log('🌱 Début du seed de la base de données...');
@@ -212,16 +214,10 @@ async function seed() {
   // 4. Utilisateurs de test (un par rôle)
   console.log('👥 Insertion des utilisateurs de test...');
 
-  // Helper pour hacher un mot de passe (on utilise un hash pré-compté pour le dev)
-  const hashPassword = (pwd: string) => {
-    // En développement, on stocke un hash connu. En prod, utilisez argon2.
-    return '$argon2id$v=19$m=65536,t=3,p=1$test$' + Buffer.from(pwd).toString('base64');
-  };
-
   const testUsers = [
     {
       email: 'admin.national@test.com',
-      passwordHash: hashPassword('AdminDev2024!'),
+      passwordHash: await hashPassword('AdminDev2024!'),
       totpSecret: 'JBSWY3DPEHPK3PXP',
       totpEnabled: false,
       prenom: 'Admin',
@@ -235,7 +231,7 @@ async function seed() {
     },
     {
       email: 'superviseur.national@test.com',
-      passwordHash: hashPassword('SuperviseurDev2024!'),
+      passwordHash: await hashPassword('SuperviseurDev2024!'),
       totpSecret: 'JBSWY3DPEHPK3PXP',
       totpEnabled: true,
       prenom: 'Superviseur',
@@ -249,7 +245,7 @@ async function seed() {
     },
     {
       email: 'superviseur.regional@test.com',
-      passwordHash: hashPassword('SuperviseurRegionalDev2024!'),
+      passwordHash: await hashPassword('SuperviseurRegionalDev2024!'),
       totpSecret: 'JBSWY3DPEHPK3PXP',
       totpEnabled: true,
       prenom: 'Superviseur',
@@ -263,7 +259,7 @@ async function seed() {
     },
     {
       email: 'agent.sante@test.com',
-      passwordHash: hashPassword('AgentDev2024!'),
+      passwordHash: await hashPassword('AgentDev2024!'),
       totpSecret: 'JBSWY3DPEHPK3PXP',
       totpEnabled: false,
       prenom: 'Agent',
