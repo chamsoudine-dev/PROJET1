@@ -50,19 +50,19 @@ export default async function middleware(req: NextRequest) {
   // Redirection selon rôle après login
   if (user && (nextUrl.pathname === '/auth/login' || nextUrl.pathname === '/')) {
     const role = user.role;
-    let redirectPath = '/agent/dashboard';
+    let redirectPath = '/agent';
     switch (role) {
       case 'ADMIN_NATIONAL':
-        redirectPath = '/admin/dashboard';
+        redirectPath = '/admin';
         break;
       case 'SUPERVISEUR_NATIONAL':
-        redirectPath = '/national/dashboard';
+        redirectPath = '/superviseur-national';
         break;
       case 'SUPERVISEUR_REGIONAL':
-        redirectPath = '/regional/dashboard';
+        redirectPath = '/superviseur-regional';
         break;
       case 'AGENT_SANTE':
-        redirectPath = '/agent/dashboard';
+        redirectPath = '/agent';
         break;
     }
     return NextResponse.redirect(new URL(redirectPath, nextUrl.origin));
@@ -80,7 +80,7 @@ export default async function middleware(req: NextRequest) {
     // Superviseur national : lecture seule, pas admin
     if (user.role === 'SUPERVISEUR_NATIONAL') {
       if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
-        return NextResponse.redirect(new URL('/national/dashboard', nextUrl.origin));
+        return NextResponse.redirect(new URL('/superviseur-national', nextUrl.origin));
       }
       return response;
     }
@@ -93,7 +93,7 @@ export default async function middleware(req: NextRequest) {
         pathname.startsWith('/api/admin') ||
         pathname.startsWith('/api/national')
       ) {
-        return NextResponse.redirect(new URL('/regional/dashboard', nextUrl.origin));
+        return NextResponse.redirect(new URL('/superviseur-regional', nextUrl.origin));
       }
       return response;
     }
@@ -108,7 +108,7 @@ export default async function middleware(req: NextRequest) {
         pathname.startsWith('/api/national') ||
         pathname.startsWith('/api/regional')
       ) {
-        return NextResponse.redirect(new URL('/agent/dashboard', nextUrl.origin));
+        return NextResponse.redirect(new URL('/agent', nextUrl.origin));
       }
       return response;
     }

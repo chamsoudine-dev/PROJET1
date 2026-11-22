@@ -209,8 +209,91 @@ async function seed() {
   }
   console.log('✅ Formations sanitaires insérées');
 
-  // 4. Maladies à déclaration obligatoire
-  console.log('🦠 Insertion des maladies à déclaration obligatoire...');
+  // 4. Utilisateurs de test (un par rôle)
+  console.log('👥 Insertion des utilisateurs de test...');
+
+  // Helper pour hacher un mot de passe (on utilise un hash pré-compté pour le dev)
+  const hashPassword = (pwd: string) => {
+    // En développement, on stocke un hash connu. En prod, utilisez argon2.
+    return '$argon2id$v=19$m=65536,t=3,p=1$test$' + Buffer.from(pwd).toString('base64');
+  };
+
+  const testUsers = [
+    {
+      email: 'admin.national@test.com',
+      passwordHash: hashPassword('AdminDev2024!'),
+      totpSecret: 'JBSWY3DPEHPK3PXP',
+      totpEnabled: false,
+      prenom: 'Admin',
+      nom: 'National',
+      telephone: '+22790000001',
+      role: 'ADMIN_NATIONAL',
+      regionId: 5, // Niamey
+      districtId: 1,
+      formationSanitaireId: 1,
+      statut: 'ACTIF',
+    },
+    {
+      email: 'superviseur.national@test.com',
+      passwordHash: hashPassword('SuperviseurDev2024!'),
+      totpSecret: 'JBSWY3DPEHPK3PXP',
+      totpEnabled: true,
+      prenom: 'Superviseur',
+      nom: 'National',
+      telephone: '+22790000002',
+      role: 'SUPERVISEUR_NATIONAL',
+      regionId: null,
+      districtId: null,
+      formationSanitaireId: 1,
+      statut: 'ACTIF',
+    },
+    {
+      email: 'superviseur.regional@test.com',
+      passwordHash: hashPassword('SuperviseurRegionalDev2024!'),
+      totpSecret: 'JBSWY3DPEHPK3PXP',
+      totpEnabled: true,
+      prenom: 'Superviseur',
+      nom: 'Regional',
+      telephone: '+22790000003',
+      role: 'SUPERVISEUR_REGIONAL',
+      regionId: 5, // Niamey
+      districtId: 1,
+      formationSanitaireId: 1,
+      statut: 'ACTIF',
+    },
+    {
+      email: 'agent.sante@test.com',
+      passwordHash: hashPassword('AgentDev2024!'),
+      totpSecret: 'JBSWY3DPEHPK3PXP',
+      totpEnabled: false,
+      prenom: 'Agent',
+      nom: 'Sante',
+      telephone: '+22790000004',
+      role: 'AGENT_SANTE',
+      regionId: 5,
+      districtId: 1,
+      formationSanitaireId: 1,
+      statut: 'ACTIF',
+    },
+  ];
+
+  for (const u of testUsers) {
+    await db.insert(utilisateur).values({
+      email: u.email,
+      passwordHash: u.passwordHash,
+      totpSecret: u.totpSecret,
+      totpEnabled: u.totpEnabled,
+      prenom: u.prenom,
+      nom: u.nom,
+      telephone: u.telephone,
+      role: u.role,
+      regionId: u.regionId,
+      districtId: u.districtId,
+      formationSanitaireId: u.formationSanitaireId,
+      statut: u.statut,
+    }).onConflictDoNothing({ target: utilisateur.email });
+  }
+  console.log('✅ Utilisateurs de test insérés');
   const maladiesData = [
     { code: 'PALU', nom: 'Paludisme', nomHaoussa: 'Maleriya', nomZarma: 'Palu', seuilAlerteDistrict: 50, seuilAlerteRegion: 200 },
     { code: 'CHOL', nom: 'Choléra', nomHaoussa: 'Kolera', nomZarma: 'Kolera', seuilAlerteDistrict: 1, seuilAlerteRegion: 5 },

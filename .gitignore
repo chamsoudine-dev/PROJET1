@@ -58,3 +58,8 @@ temp/
 
 # Optional eslint cache
 .eslintcache
+.env
+tsconfig.tsbuildinfo
+public/sw.js
+test-results/
+playwright-report/
